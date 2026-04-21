@@ -1,42 +1,31 @@
 <?php
     session_start();
     require_once __DIR__ . '/../../config/Database/conexion.php';
+    require_once __DIR__ . '/../Models/usuario.php';
 
     $correo = $_POST['correo'] ?? '';
     $password = $_POST['password'] ?? '';
-    try {
 
+    try {
         $database = new Database();
         $pdo = $database->getConnection();
-
-        $sql = "SELECT * FROM sc_bolsa.sp_obtener_usuario_login(:correo)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['correo' => $correo]);
-        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $usuarioModel = new usuario($pdo);
+        $usuario = $usuarioModel->obtenerPorCorreo($correo);
 
         if ($usuario && password_verify($password, $usuario['usr_password'])) {
-
             $_SESSION['id'] = $usuario['usr_id'];
             $_SESSION['usuario'] = $usuario['usr_nombre'] . " " . $usuario['usr_apellido'];
             $_SESSION['email'] = $usuario['usr_correo'];
-            $_SESSION['nombre'] = $usuario['usr_nombre'];
-            $_SESSION['apellido'] = $usuario['usr_apellido'];
             $_SESSION['rol'] = $usuario['rl_id'];
 
-            if($usuario['rl_id'] == 2){
-                header('location: ../../views/postulante/home.php?status=success&msg=¡Bienvenido de nuevo a Workly!');
-            }else if($usuario['rl_id'] == 3){
-                header('location: ../../views/empresa/home.php?status=success&msg=¡Bienvenido de nuevo!');
-            }
+            $ruta = ($usuario['rl_id'] == 2) ? 'postulante/home.php' : 'empresa/home.php';
+            header("Location: ../../views/$ruta?status=success&msg=¡Bienvenido a Workly!");
             exit();
-
         } else {
             header("Location: ../../views/postulante/login.php?error=invalid_credentials");
             exit();
         }
-
     } catch (PDOException $e) {
         error_log("Error en Login: " . $e->getMessage());
         header("Location: ../../views/postulante/login.php?error=db_error");
-        exit();
     }

@@ -12,18 +12,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        const profileBtn = document.getElementById('profileBtn');
-        const profileMenu = document.getElementById('profileMenu');
+    <!-- Los scripts generales se cargan desde el header -->
 
-        profileBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            profileMenu.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', () => {
-            profileMenu.classList.add('hidden');
-        });
-    </script>
 </body>
 </html>

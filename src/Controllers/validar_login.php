@@ -24,19 +24,19 @@
             $_SESSION['rol'] = $usuario['rl_id'];
 
             if($usuario['rl_id'] == 2){
-                header('location: ../../views/postulante/home.php');
+                header('location: ../../views/postulante/home.php?status=success&msg=¡Bienvenido de nuevo a Workly!');
             }else if($usuario['rl_id'] == 3){
-                header('location: ../../views/empresa/home.php');
+                header('location: ../../views/empresa/home.php?status=success&msg=¡Bienvenido de nuevo!');
             }
             exit();
 
         } else {
-            header("Location: ../views/login.php?error=invalid_credentials");
+            header("Location: ../../views/postulante/login.php?error=invalid_credentials");
             exit();
         }
 
     } catch (PDOException $e) {
         error_log("Error en Login: " . $e->getMessage());
-        header("Location: ../views/login.php?error=db_error");
+        header("Location: ../../views/postulante/login.php?error=db_error");
         exit();
     }

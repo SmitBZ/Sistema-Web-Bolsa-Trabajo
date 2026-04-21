@@ -26,6 +26,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?? 'Workly'; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/js/general.js" defer></script>
     <link href="../../assets/css/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -52,7 +54,7 @@
         <div class="flex justify-between h-16 items-center">
 
             <div class="flex items-center gap-2">
-                <a href="principal.php" class="flex items-center gap-2">
+                <a href="../../views/postulante/home.php" class="flex items-center gap-2">
                     <img class="h-8 w-auto" src="../../assets/img/logo.png" alt="Workly">
                     <span class="text-xl font-bold tracking-tight" style="color: #385cb4;">Workly</span>
                 </a>

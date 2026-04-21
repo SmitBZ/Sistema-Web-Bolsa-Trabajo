@@ -23,7 +23,11 @@
             $_SESSION['apellido'] = $usuario['usr_apellido'];
             $_SESSION['rol'] = $usuario['rl_id'];
 
-            header("Location: ../views/principal.php");
+            if($usuario['rl_id'] == 2){
+                header('location: ../../views/postulante/home.php');
+            }else if($usuario['rl_id'] == 3){
+                header('location: ../../views/empresa/home.php');
+            }
             exit();
 
         } else {

@@ -1,6 +1,6 @@
 <?php
-session_start();
-$title = "Workly";
+    session_start();
+    $title = "Workly";
 ?>
 <!DOCTYPE html>
 <html lang="es">

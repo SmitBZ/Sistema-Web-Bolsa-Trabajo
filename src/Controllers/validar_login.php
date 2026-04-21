@@ -29,3 +29,4 @@
         error_log("Error en Login: " . $e->getMessage());
         header("Location: ../../views/postulante/login.php?error=db_error");
     }
+?>

@@ -14,9 +14,9 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$usr_id_header]);
         $u_data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $foto_header = !empty($u_data['usr_foto']) ? "../../assets/uploads/perfiles/".$u_data['usr_foto'] : '../../assets/img/usuario.png';
+        $foto_header = !empty($u_data['usr_foto']) ? "../../assets/uploads/".$u_data['usr_foto'] : '../../assets/img/perfil.png';
     } catch (Exception $e) {
-        $foto_header = '../../assets/img/usuario.png';
+        $foto_header = '../../assets/img/perfil.png';
     }
 ?>
 <!DOCTYPE html>

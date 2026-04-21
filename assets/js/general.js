@@ -12,14 +12,12 @@ class NotificationManager {
             }
         });
     }
-
     showToast(message, icon = 'success') {
         this.Toast.fire({
             icon: icon,
             title: message
         });
     }
-
     success(title, text) {
         Swal.fire({
             icon: 'success',
@@ -28,7 +26,6 @@ class NotificationManager {
             confirmButtonColor: '#2563eb'
         });
     }
-
     error(title, text) {
         Swal.fire({
             icon: 'error',
@@ -37,7 +34,6 @@ class NotificationManager {
             confirmButtonColor: '#ef4444'
         });
     }
-
     warning(title, text) {
         Swal.fire({
             icon: 'warning',
@@ -86,22 +82,32 @@ class NotificationManager {
 window.Notifications = new NotificationManager();
 document.addEventListener('DOMContentLoaded', () => {
     window.Notifications.handleUrlParams();
-
     const profileBtn = document.getElementById('profileBtn');
     const profileMenu = document.getElementById('profileMenu');
-
+    const notiBtn = document.getElementById('notiBtn');
+    const notiMenu = document.getElementById('notificationsMenu');
     if (profileBtn && profileMenu) {
         profileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            if (notiMenu) notiMenu.classList.add('hidden'); // Cerrar el otro menu
             profileMenu.classList.toggle('hidden');
         });
-
-        window.addEventListener('click', () => {
-            if (!profileMenu.classList.contains('hidden')) {
-                profileMenu.classList.add('hidden');
-            }
+    }
+    if (notiBtn && notiMenu) {
+        notiBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (profileMenu) profileMenu.classList.add('hidden'); // Cerrar el otro menu
+            notiMenu.classList.toggle('hidden');
         });
     }
+    window.addEventListener('click', () => {
+        if (profileMenu && !profileMenu.classList.contains('hidden')) {
+            profileMenu.classList.add('hidden');
+        }
+        if (notiMenu && !notiMenu.classList.contains('hidden')) {
+            notiMenu.classList.add('hidden');
+        }
+    });
 });
 window.togglePassword = function(inputId, btn) {
     const input = document.getElementById(inputId);

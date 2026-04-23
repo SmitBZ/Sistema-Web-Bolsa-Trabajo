@@ -57,7 +57,7 @@ include '../../includes/components/header.php';
                  </div>
                  <div class="flex-1 relative">
                      <i class="fas fa-location-arrow absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                     <input type="text" name="ubicacion" placeholder="Ciudad o Remoto"
+                     <input type="text" name="ubicacion" placeholder="Departamento"
                             class="w-full pl-12 pr-4 py-5 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500/20 text-slate-700 font-medium transition">
                  </div>
                  <button type="submit" class="bg-slate-900 hover:bg-blue-600 text-white px-8 py-5 rounded-2xl font-bold transition-all active:scale-95 shadow-lg shadow-slate-200">

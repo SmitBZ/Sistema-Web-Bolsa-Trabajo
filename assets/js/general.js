@@ -108,6 +108,42 @@ document.addEventListener('DOMContentLoaded', () => {
             notiMenu.classList.add('hidden');
         }
     });
+
+    // Form Email Validation Logic
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const emailInput = form.querySelector('input[type="email"][name="correo"]');
+            if (emailInput) {
+                const email = emailInput.value.toLowerCase().trim();
+                const isEmpresa = window.location.href.includes('/empresa/');
+                const isPostulante = window.location.href.includes('/postulante/');
+                
+                const domain = email.substring(email.lastIndexOf("@") + 1);
+                
+                if (isPostulante) {
+                    if (domain.includes('.edu')) {
+                        e.preventDefault();
+                        window.Notifications.warning(
+                            'Correo no permitido',
+                            'Los postulantes no pueden ingresar o registrarse con correos educativos (.edu).'
+                        );
+                        return false;
+                    }
+                } else if (isEmpresa) {
+                    const freeDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'outlook.es', 'live.com', 'yahoo.com', 'yahoo.es', 'aol.com', 'icloud.com'];
+                    if (freeDomains.includes(domain)) {
+                        e.preventDefault();
+                        window.Notifications.warning(
+                            'Correo no permitido',
+                            'Las empresas deben usar un correo corporativo o educativo válido. No se permiten correos gratuitos.'
+                        );
+                        return false;
+                    }
+                }
+            }
+        });
+    });
 });
 window.togglePassword = function(inputId, btn) {
     const input = document.getElementById(inputId);

@@ -22,7 +22,8 @@
             header("Location: ../../views/$ruta?status=success&msg=¡Bienvenido a Workly!");
             exit();
         } else {
-            header("Location: ../../views/postulante/login.php?error=invalid_credentials");
+            $ruta_error = ($usuario['rl_id'] == 2) ? 'postulante/login.php' : 'empresa/login.php';
+            header("Location: ../../views/$ruta_error?error=invalid_credentials");
             exit();
         }
     } catch (PDOException $e) {

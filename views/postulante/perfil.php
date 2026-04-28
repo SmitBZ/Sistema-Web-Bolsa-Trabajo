@@ -8,7 +8,7 @@
 
     $activePage = 'perfil';
     $title = "Mi Perfil - Workly";
-    include __DIR__ .  '/../../includes/components/header.php';
+    include __DIR__ . '/../../includes/components/header.php';
 ?>
 <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden mb-8">
     <div class="h-48 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 relative">

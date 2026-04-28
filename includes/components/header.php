@@ -1,8 +1,8 @@
 <?php
-    require_once __DIR__ . '/../../config/Database/Conexion.php';
+    require_once __DIR__ . '/../../config/Database/conexion.php';
     if (session_status() === PHP_SESSION_NONE) { session_start(); }
         if (!isset($_SESSION['id'])) {
-        header("Location: ../../index.php");
+        header("Location: ../../../index.php");
         exit();
     }
     $usuario = $_SESSION['usuario'];
@@ -29,6 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../assets/js/general.js" defer></script>
     <link href="../../assets/css/output.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; color: #4a516d; background-color: #f8fafc; }
@@ -74,7 +75,6 @@
                             <h3 class="text-xs font-black text-gray-800 uppercase tracking-widest">Notificaciones</h3>
                         </div>
                         <div class="max-h-72 overflow-y-auto">
-                            <!-- Ejemplo de Notificación 1 -->
                             <a href="#" class="flex items-start gap-3 px-4 py-4 hover:bg-blue-50 transition border-b border-gray-50 group">
                                 <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition">
                                     <i class="fas fa-briefcase text-sm"></i>
@@ -85,7 +85,6 @@
                                     <p class="text-[9px] text-blue-500 font-bold uppercase">Hace 2 horas</p>
                                 </div>
                             </a>
-                            <!-- Ejemplo de Notificación 2 -->
                             <a href="#" class="flex items-start gap-3 px-4 py-4 hover:bg-blue-50 transition border-b border-gray-50 group">
                                 <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition">
                                     <i class="fas fa-eye text-sm"></i>
@@ -120,18 +119,18 @@
                             </svg>
                             Mi Perfil
                         </a>
-                        <a href="mis_postulaciones.php" class="flex items-center gap-3 px-4 py-2 text-sm text-[#4a516d] hover:bg-gray-50 hover:text-[#385cb4] transition">
+                        <a href="postulaciones.php" class="flex items-center gap-3 px-4 py-2 text-sm text-[#4a516d] hover:bg-gray-50 hover:text-[#385cb4] transition">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                             </svg>
                             Postulaciones
                         </a>
-                        <a href="configuracion.php" class="flex items-center gap-3 px-4 py-2 text-sm text-[#4a516d] hover:bg-gray-50 hover:text-[#385cb4] transition">
+                        <a href="opciones.php" class="flex items-center gap-3 px-4 py-2 text-sm text-[#4a516d] hover:bg-gray-50 hover:text-[#385cb4] transition">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            Configuración
+                            Opciones
                         </a>
                         <hr class="my-1 border-gray-100">
                         <a href="../../src/Controllers/salir_conexion.php" class="flex items-center gap-3 px-4 py-2 text-sm text-red-500 hover:bg-red-50 transition font-medium">

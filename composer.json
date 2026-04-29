@@ -1,0 +1,17 @@
+{
+    "name": "smitbz/sistemabolsatrabajo",
+    "autoload": {
+        "psr-4": {
+            "Smitbz\\Sistemabolsatrabajo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SmitBZ",
+            "email": "smit15zurita@hotmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
+}

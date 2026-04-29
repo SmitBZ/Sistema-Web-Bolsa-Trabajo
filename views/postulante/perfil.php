@@ -34,9 +34,10 @@
                 <a href="perfil_edit.php" class="flex-1 md:flex-none text-center bg-gray-50 hover:bg-gray-100 text-gray-700 font-black py-4 px-8 rounded-2xl transition-all border border-gray-100 text-sm uppercase tracking-tighter">
                     <i class="fas fa-edit mr-2 opacity-50"></i>Editar Perfil
                 </a>
-                <button class="flex-1 md:flex-none text-center bg-blue-600 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-2xl shadow-xl shadow-blue-100 transition-all text-sm uppercase tracking-tighter">
+                <a href="../../src/Controllers/generar_cv.php" target="_blank"
+                   class="flex-1 md:flex-none text-center bg-blue-600 hover:bg-blue-800 text-white font-black py-4 px-10 rounded-2xl shadow-xl shadow-blue-100 transition-all text-sm uppercase tracking-tighter">
                     Descargar CV
-                </button>
+                </a>
             </div>
         </div>
     </div>
